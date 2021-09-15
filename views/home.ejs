@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <div id="">Show</a>
+</head>
+ 
+<body>
+
+    <label for="icons">Icons:</label>
+<select id="icons">
+  <option value="icons/ic_create_new_folder_black_48dp.png">New Folder</option>
+  <option value="icons/ic_file_upload_black_48dp.png">File Upload</option>
+  <option value="icons/ic_folder_black_48dp.png">Closed Folder</option>
+  <option value="icons/ic_folder_open_black_48dp.png">Open Folder</option>
+  <option value="icons/ic_folder_shared_black_48dp.png">Shared Folder</option>
+</select>
+<button id="show">Show Icon</button>
+<div id="container"></div>
+</body>
+
+<script>
+    if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('https://drive.google.com/file/d/1N8ixJ83wg3TvGkEDiRL1cLXu4wZYTtrX/view?usp=sharing');
+}
+
+document.querySelector('#show').addEventListener('click', () => {
+  const iconUrl = document.querySelector('select').selectedOptions[0].value;
+  let imgElement = document.createElement('img');
+  imgElement.src = iconUrl;
+  document.querySelector('#container').appendChild(imgElement);
+});
+
+</script>
+ 
+</html>   
